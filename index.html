@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interlock Talent | Utah Mechanical Engineering Placement</title>
+    <meta name="description" content="A streamlined, flat-fee placement platform matching pre-vetted mechanical engineering students with targeted, local internships in Utah.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-subtle: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            
+            --orange-primary: #ea580c;
+            --orange-hover: #c2410c;
+            --orange-soft: #ffedd5;
+            --orange-glow: rgba(234, 88, 12, 0.15);
+            
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER & NAV */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(248, 250, 252, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--orange-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px var(--orange-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--orange-primary);
+            color: white;
+            box-shadow: 0 4px 12px var(--orange-glow);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--orange-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border-color: var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--border-hover);
+            background-color: var(--bg-subtle);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 90px 0 60px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background-color: var(--orange-soft);
+            color: var(--orange-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(234, 88, 12, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+            max-width: 900px;
+            margin: 0 auto 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 36px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        /* METRIC CARDS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: left;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-hover);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--orange-primary);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .stat-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* SECTION LAYOUTS */
+        .section {
+            padding: 90px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            color: var(--orange-primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 680px;
+        }
+
+        /* EMPLOYER / FEATURE GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--orange-soft);
+            color: var(--orange-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .skill-tag {
+            background: var(--bg-subtle);
+            color: var(--text-main);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+        }
+
+        /* CONNECT / CONTACT TABS */
+        .connect-section {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 90px;
+        }
+
+        .tab-switcher {
+            display: flex;
+            gap: 8px;
+            background: var(--bg-subtle);
+            padding: 6px;
+            border-radius: var(--radius-md);
+            width: fit-content;
+            margin-bottom: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .tab-btn {
+            padding: 10px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: var(--text-main);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* FORMS */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: var(--bg-main);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--orange-primary);
+            box-shadow: 0 0 0 3px var(--orange-soft);
+            background: white;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            background: var(--bg-main);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.4rem; }
+            .stats-grid, .features-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+            .connect-section { padding: 24px; }
+            .footer-wrapper { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <div class="logo-icon">I</div>
+                <span>INTERLOCK<span style="color: var(--orange-primary);">TALENT</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#employers">For Employers</a></li>
+                <li><a href="#students">For Students</a></li>
+                <li><a href="#connect" class="btn btn-primary" style="padding: 8px 16px; color: white;">Get Started</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="badge">
+                <span class="mono">UTAH TECH</span> Utah Mechanical Engineering Focus
+            </div>
+            <h1>Connecting Top Engineering Talent with Local Engineering Firms</h1>
+            <p>A streamlined, flat-fee placement platform matching pre-vetted mechanical engineering students with targeted, local internships.</p>
+            
+            <div class="hero-cta">
+                <a href="#connect-employer" onclick="switchTab('employer')" class="btn btn-primary">Hire Engineering Talent</a>
+                <a href="#connect-student" onclick="switchTab('student')" class="btn btn-secondary">Join Talent Network</a>
+            </div>
+
+            <!-- STATS / HIGHLIGHTS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Direct Screening</div>
+                    <div class="stat-desc">Every candidate is evaluated personally for real hands-on technical competencies.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Flat Fee</div>
+                    <div class="stat-label">No Inflated Percentages</div>
+                    <div class="stat-desc">Transparent pricing model with zero monthly retainers or salary markups.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Local Focus</div>
+                    <div class="stat-label">Utah Tech Ecosystem</div>
+                    <div class="stat-desc">Connecting local engineering programs directly with growing regional firms.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOR EMPLOYERS -->
+        <section id="employers" class="section">
+            <div class="section-header">
+                <span class="section-tag">For Engineering Managers & Hiring Teams</span>
+                <h2 class="section-title">Hire Field-Ready Engineering Interns</h2>
+                <p class="section-subtitle">Skip traditional job boards. Get vetted candidates evaluated for hands-on experience, software proficiency, and practical problem-solving capabilities.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Pre-Screened Skillsets</h3>
+                    <p>Every student candidate is screened for practical engineering tools and real fabrication experience.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SolidWorks & CAD</span>
+                        <span class="skill-tag">DFM / DFA</span>
+                        <span class="skill-tag">GD&T (ASME Y14.5)</span>
+                        <span class="skill-tag">CNC & CAM</span>
+                        <span class="skill-tag">3D Printing (FDM/SLA)</span>
+                        <span class="skill-tag">Python & C++</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Flat-Fee Contingency</h3>
+                    <p>No 20–30% salary markups or recurring monthly retainers. Pay a simple, transparent flat placement fee only when you successfully hire a candidate.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Speed & Low Friction</h3>
+                    <p>Receive targeted shortlists within days—complete with annotated resumes, project portfolios, and clear availability timelines.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOR STUDENTS -->
+        <section id="students" class="section">
+            <div class="section-header">
+                <span class="section-tag">For Engineering Students</span>
+                <h2 class="section-title">Bypass the Resume Void</h2>
+                <p class="section-subtitle">Sending hundreds of applications through online portals often leads to automated rejection filters or total silence. Interlock Talent connects you directly to engineering managers and decision makers.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>Direct Manager Visibility</h3>
+                    <p>Your personal projects, club participation, and hands-on fabrication skills are directly presented to hiring managers—not trapped in an HR filter.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Targeted Local Companies</h3>
+                    <p>Connect with local firms offering flexible, school-year internships designed to build multi-year industry experience right alongside your classes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>100% Free for Students</h3>
+                    <p>Our talent network services and application support are always entirely free for student candidates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONNECT / INTAKE SECTION -->
+        <section id="connect" class="section">
+            <div class="connect-section">
+                <div class="section-header" style="margin-bottom: 24px;">
+                    <span class="section-tag">Get Connected</span>
+                    <h2 class="section-title">Start the Conversation</h2>
+                    <p class="section-subtitle">No long forms or tedious sign-up processes. Send a quick inquiry and we will reach out directly.</p>
+                </div>
+
+                <!-- TABS -->
+                <div class="tab-switcher">
+                    <button class="tab-btn active" id="tab-employer-btn" onclick="switchTab('employer')">I am an Employer</button>
+                    <button class="tab-btn" id="tab-student-btn" onclick="switchTab('student')">I am a Student</button>
+                </div>
+
+                <!-- EMPLOYER FORM -->
+                <div id="tab-employer" class="tab-content active">
+                    <!-- Formspree Endpoint: Replace with your form ID -->
+                    <form action="https://formspree.io/f/xvgondpp" method="POST">
+                        <input type="hidden" name="form_type" value="employer_inquiry">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="emp-name">Full Name *</label>
+                                <input type="text" id="emp-name" name="name" placeholder="e.g., Sarah Jenkins" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="emp-email">Work Email *</label>
+                                <input type="email" id="emp-email" name="email" placeholder="sarah@company.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="emp-company">Company Name *</label>
+                                <input type="text" id="emp-company" name="company" placeholder="e.g., Apex Engineering" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="emp-start">Target Start Month / Term *</label>
+                                <select id="emp-start" name="start_month" required>
+                                    <option value="" disabled selected>Select start timeframe</option>
+                                    <option value="Immediate / ASAP">Immediate / ASAP</option>
+                                    <option value="Summer 2027">Summer 2027</option>
+                                    <option value="Fall 2027">Fall 2027</option>
+                                    <option value="Winter / Spring 2028">Winter / Spring 2028</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="emp-notes">Additional Notes (Optional)</label>
+                                <textarea id="emp-notes" name="notes" placeholder="Briefly describe the team, project scope, or specific tools needed..."></textarea>
+                                <span class="form-note">Keep it brief—we will reach out directly to discuss role details.</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 24px; width: 100%;">Submit Employer Inquiry</button>
+                    </form>
+                </div>
+
+                <!-- STUDENT FORM -->
+                <div id="tab-student" class="tab-content">
+                    <form action="https://formspree.io/f/xvgondpp" method="POST">
+                        <input type="hidden" name="form_type" value="student_inquiry">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="stu-name">Full Name *</label>
+                                <input type="text" id="stu-name" name="name" placeholder="e.g., Alex Miller" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stu-email">Student Email *</label>
+                                <input type="email" id="stu-email" name="email" placeholder="alex@byu.edu" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stu-school">University / School *</label>
+                                <input type="text" id="stu-school" name="school" placeholder="e.g., Brigham Young University" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stu-grad">Expected Graduation Year *</label>
+                                <select id="stu-grad" name="grad_year" required>
+                                    <option value="" disabled selected>Select graduation year</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2030+">2030+</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="stu-interest">How can we help? *</label>
+                                <select id="stu-interest" name="interest_type" required>
+                                    <option value="" disabled selected>Choose an option</option>
+                                    <option value="Attend Info Session">Attend an info session / meeting to learn more</option>
+                                    <option value="Resume & Application Help">Help with resumes, portfolios, and applications</option>
+                                    <option value="Apply for Internship Roles">Apply directly for open internship roles</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 24px; width: 100%;">Submit Student Request</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-wrapper">
+            <div>
+                <strong>Interlock Talent LLC</strong> — Connecting Utah Mechanical Engineers with Industry.
+            </div>
+            <div>
+                Contact: <a href="mailto:Carter.stong@interlocktalent.com" style="color: var(--orange-primary); text-decoration: none; font-weight: 600;">Carter.stong@interlocktalent.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TAB SWITCHING SCRIPT -->
+    <script>
+        function switchTab(type) {
+            const empBtn = document.getElementById('tab-employer-btn');
+            const stuBtn = document.getElementById('tab-student-btn');
+            const empContent = document.getElementById('tab-employer');
+            const stuContent = document.getElementById('tab-student');
+
+            if (type === 'employer') {
+                empBtn.classList.add('active');
+                stuBtn.classList.remove('active');
+                empContent.classList.add('active');
+                stuContent.classList.remove('active');
+            } else {
+                stuBtn.classList.add('active');
+                empBtn.classList.remove('active');
+                stuContent.classList.add('active');
+                empContent.classList.remove('active');
+            }
+        }
+
+        // Handle URL Hash jumps directly to specific tab
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#connect-student') {
+                switchTab('student');
+            } else if (window.location.hash === '#connect-employer') {
+                switchTab('employer');
+            }
+        });
+    </script>
+</body>
+</html>
